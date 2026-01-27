@@ -157,6 +157,18 @@ namespace Nucleus.Gaming.Coop.ProtoInput
 
             ProtoInput.protoInput.SetupState(instanceHandle, instanceIndex);
 
+            if (mouseHandle != -1)
+            {
+                ProtoInput.protoInput.AddSelectedMouseHandle(instanceHandle, (uint)mouseHandle);
+            }
+
+            if (keyboardHandle != -1)
+            {
+                ProtoInput.protoInput.AddSelectedKeyboardHandle(instanceHandle, (uint)keyboardHandle);
+            }
+
+            ProtoInput.protoInput.SetTranslateXinputtoMKB(instanceHandle, gen.ProtoInput.TranslateXinputtoMKB);
+
             if (gen.ProtoInput.RegisterRawInputHook)
             {
                 ProtoInput.protoInput.InstallHook(instanceHandle, ProtoInput.ProtoHookIDs.RegisterRawInputHookID);
@@ -386,15 +398,7 @@ namespace Nucleus.Gaming.Coop.ProtoInput
                 }
             }
 
-            if (mouseHandle != -1)
-            {
-                ProtoInput.protoInput.AddSelectedMouseHandle(instanceHandle, (uint)mouseHandle);
-            }
 
-            if (keyboardHandle != -1)
-            {
-                ProtoInput.protoInput.AddSelectedKeyboardHandle(instanceHandle, (uint)keyboardHandle);
-            }
 
             ProtoInput.protoInput.SetControllerIndex(instanceHandle,
                 controllerIndex < 0 ? 0 : (uint)controllerIndex,

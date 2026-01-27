@@ -96,6 +96,14 @@ namespace Nucleus.Gaming.Coop.ProtoInput
 
             [DllImport("ProtoInputLoader32.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
             public static extern uint EasyHookInjectStartup(string exePath, string commandLine, uint processCreationFlags, string dllFolderPath, out uint pid, IntPtr environment);
+            [DllImport("ProtoInputLoader32.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
+            public static extern void AddSelectedMouseHandle(uint instanceHandle, uint mouseHandle);
+
+            [DllImport("ProtoInputLoader32.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
+            public static extern void AddSelectedKeyboardHandle(uint instanceHandle, uint keyboardHandle);
+
+            [DllImport("ProtoInputLoader32.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
+            public static extern void SetTranslateXinputtoMKB(uint instanceHandle, bool enable);
 
             [DllImport("ProtoInputLoader32.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
             public static extern void InstallHook(uint instanceHandle, ProtoHookIDs hookID);
@@ -148,11 +156,6 @@ namespace Nucleus.Gaming.Coop.ProtoInput
             [DllImport("ProtoInputLoader32.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
             public static extern void SetExternalFreezeFakeInput(uint instanceHandle, bool enableFreeze);
 
-            [DllImport("ProtoInputLoader32.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
-            public static extern void AddSelectedMouseHandle(uint instanceHandle, uint mouseHandle);
-
-            [DllImport("ProtoInputLoader32.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
-            public static extern void AddSelectedKeyboardHandle(uint instanceHandle, uint keyboardHandle);
 
             [DllImport("ProtoInputLoader32.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
             public static extern void SetControllerIndex(uint instanceHandle, uint controllerIndex, uint controllerIndex2, uint controllerIndex3, uint controllerIndex4);
@@ -271,6 +274,15 @@ namespace Nucleus.Gaming.Coop.ProtoInput
             public static extern uint EasyHookInjectStartup(string exePath, string commandLine, uint processCreationFlags, string dllFolderPath, out uint pid, IntPtr environment);
 
             [DllImport("ProtoInputLoader64.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
+            public static extern void AddSelectedMouseHandle(uint instanceHandle, uint mouseHandle);
+
+            [DllImport("ProtoInputLoader64.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
+            public static extern void AddSelectedKeyboardHandle(uint instanceHandle, uint keyboardHandle);
+
+            [DllImport("ProtoInputLoader64.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
+            public static extern void SetTranslateXinputtoMKB(uint instanceHandle, bool enable);
+
+            [DllImport("ProtoInputLoader64.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
             public static extern void InstallHook(uint instanceHandle, ProtoHookIDs hookID);
 
             [DllImport("ProtoInputLoader64.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
@@ -321,11 +333,6 @@ namespace Nucleus.Gaming.Coop.ProtoInput
             [DllImport("ProtoInputLoader64.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
             public static extern void SetExternalFreezeFakeInput(uint instanceHandle, bool enableFreeze);
 
-            [DllImport("ProtoInputLoader64.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
-            public static extern void AddSelectedMouseHandle(uint instanceHandle, uint mouseHandle);
-
-            [DllImport("ProtoInputLoader64.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
-            public static extern void AddSelectedKeyboardHandle(uint instanceHandle, uint keyboardHandle);
 
             [DllImport("ProtoInputLoader64.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
             public static extern void SetControllerIndex(uint instanceHandle, uint controllerIndex, uint controllerIndex2, uint controllerIndex3, uint controllerIndex4);
@@ -532,7 +539,40 @@ namespace Nucleus.Gaming.Coop.ProtoInput
         {
             return EasyHookInjectStartup(exePath, commandLine, processCreationFlags, dllFolderPath, out uint pid, IntPtr.Zero);
         }
+        public void AddSelectedMouseHandle(uint instanceHandle, uint mouseHandle)
+        {
+            if (IntPtr.Size == 4)
+            {
+                ProtoInput32.AddSelectedMouseHandle(instanceHandle, mouseHandle);
+            }
+            else
+            {
+                ProtoInput64.AddSelectedMouseHandle(instanceHandle, mouseHandle);
+            }
+        }
 
+        public void AddSelectedKeyboardHandle(uint instanceHandle, uint keyboardHandle)
+        {
+            if (IntPtr.Size == 4)
+            {
+                ProtoInput32.AddSelectedKeyboardHandle(instanceHandle, keyboardHandle);
+            }
+            else
+            {
+                ProtoInput64.AddSelectedKeyboardHandle(instanceHandle, keyboardHandle);
+            }
+        }
+        public void SetTranslateXinputtoMKB(uint instanceHandle, bool enable)
+        {
+            if (IntPtr.Size == 4)
+            {
+                ProtoInput32.SetTranslateXinputtoMKB(instanceHandle, enable);
+            }
+            else
+            {
+                ProtoInput64.SetTranslateXinputtoMKB(instanceHandle, enable);
+            }
+        }
         public void InstallHook(uint instanceHandle, ProtoHookIDs hookID)
         {
             if (IntPtr.Size == 4)
@@ -730,29 +770,7 @@ namespace Nucleus.Gaming.Coop.ProtoInput
             }
         }
 
-        public void AddSelectedMouseHandle(uint instanceHandle, uint mouseHandle)
-        {
-            if (IntPtr.Size == 4)
-            {
-                ProtoInput32.AddSelectedMouseHandle(instanceHandle, mouseHandle);
-            }
-            else
-            {
-                ProtoInput64.AddSelectedMouseHandle(instanceHandle, mouseHandle);
-            }
-        }
 
-        public void AddSelectedKeyboardHandle(uint instanceHandle, uint keyboardHandle)
-        {
-            if (IntPtr.Size == 4)
-            {
-                ProtoInput32.AddSelectedKeyboardHandle(instanceHandle, keyboardHandle);
-            }
-            else
-            {
-                ProtoInput64.AddSelectedKeyboardHandle(instanceHandle, keyboardHandle);
-            }
-        }
 
         public void SetControllerIndex(uint instanceHandle, uint controllerIndex, uint controllerIndex2, uint controllerIndex3, uint controllerIndex4)
         {

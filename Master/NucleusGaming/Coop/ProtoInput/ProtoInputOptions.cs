@@ -9,6 +9,7 @@ namespace Nucleus.Gaming.Coop.ProtoInput
         public bool InjectRuntime_EasyHookMethod;
         public bool InjectRuntime_EasyHookStealthMethod;
 
+        public bool TranslateXinputtoMKB;
         public bool RegisterRawInputHook;
         public bool GetRawInputDataHook;
         public bool MessageFilterHook;
