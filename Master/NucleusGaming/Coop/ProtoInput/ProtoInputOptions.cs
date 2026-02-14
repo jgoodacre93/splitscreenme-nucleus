@@ -10,6 +10,50 @@ namespace Nucleus.Gaming.Coop.ProtoInput
         public bool InjectRuntime_EasyHookStealthMethod;
 
         public bool TranslateXinputtoMKB;
+        //XtranslateCFG all bools
+        public bool TranslateXSwapSticks;
+        public bool TranslateXScanner;
+        public bool TranslateXShouldersNextPoint;
+        public bool TranslateXAstatic;
+        public bool TranslateXBstatic;
+        public bool TranslateXXstatic;
+        public bool TranslateXYstatic;
+        public bool TranslateXAPointClick;
+        public bool TranslateXBPointClick;
+        public bool TranslateXXPointClick;
+        public bool TranslateXYPointClick;
+        public bool TranslateXAPointMove;
+        public bool TranslateXBPointMove;
+        public bool TranslateXXPointMove;
+        public bool TranslateXYPointMove;
+
+        //XtranslateKeys all ints
+        public int TranslateXButtonA;
+        public int TranslateXButtonB;
+        public int TranslateXButtonX;
+        public int TranslateXButtonY;
+        public int TranslateXButtonRS;
+        public int TranslateXButtonLS;
+
+        public int TranslateXButtonRight;
+        public int TranslateXButtonLeft;
+        public int TranslateXButtonUp;
+        public int TranslateXButtonDown;
+
+        public int TranslateXStickR;
+        public int TranslateXStickL;
+
+        public int TranslateXStickRight;
+        public int TranslateXStickLeft;
+        public int TranslateXStickUp;
+        public int TranslateXStickDown;
+
+        public int TranslateXButtonOption;
+        public int TranslateXButtonStart;
+        public int TranslateXSensitivity;
+        public int TranslateXAccelration;
+
+       
         public bool RegisterRawInputHook;
         public bool GetRawInputDataHook;
         public bool MessageFilterHook;
@@ -30,6 +74,7 @@ namespace Nucleus.Gaming.Coop.ProtoInput
         public bool FindWindowHook;
         public bool CreateSingleHIDHook;
         public bool SetWindowStyleHook;
+        public bool GetCursorInfoHook;
         public MoveWindowHook MoveWindowHook;
         public bool AdjustWindowRectHook;
         public SetRemoveBorderHook SetRemoveBorderHook;
