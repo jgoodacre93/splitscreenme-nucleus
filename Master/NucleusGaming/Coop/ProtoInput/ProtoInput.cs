@@ -215,7 +215,7 @@ namespace Nucleus.Gaming.Coop.ProtoInput
             public static extern void DinputHookAlsoHooksGetDeviceState(uint instanceHandle, bool enable);
 
             [DllImport("ProtoInputLoader32.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
-            public static extern void SetSetWindowPosSettings(uint instanceHandle, int posx, int posy, int width, int height);
+            public static extern void SetSetWindowPosSettings(uint instanceHandle, int posx, int posy, int width, int height, bool scale);
 
             [DllImport("ProtoInputLoader32.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
             public static extern void SetSetWindowPosDontResize(uint instanceHandle, bool enable);
@@ -382,7 +382,7 @@ namespace Nucleus.Gaming.Coop.ProtoInput
             public static extern void DinputHookAlsoHooksGetDeviceState(uint instanceHandle, bool enable);
 
             [DllImport("ProtoInputLoader64.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
-            public static extern void SetSetWindowPosSettings(uint instanceHandle, int posx, int posy, int width, int height);
+            public static extern void SetSetWindowPosSettings(uint instanceHandle, int posx, int posy, int width, int height, bool scale);
 
             [DllImport("ProtoInputLoader64.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
             public static extern void SetSetWindowPosDontResize(uint instanceHandle, bool enable);
@@ -994,15 +994,15 @@ namespace Nucleus.Gaming.Coop.ProtoInput
             }
         }
 
-        public void SetSetWindowPosSettings(uint instanceHandle, int posx, int posy, int width, int height)
+        public void SetSetWindowPosSettings(uint instanceHandle, int posx, int posy, int width, int height, bool scale)
         {
             if (IntPtr.Size == 4)
             {
-                ProtoInput32.SetSetWindowPosSettings(instanceHandle, posx, posy, width, height);
+                ProtoInput32.SetSetWindowPosSettings(instanceHandle, posx, posy, width, height, scale);
             }
             else
             {
-                ProtoInput64.SetSetWindowPosSettings(instanceHandle, posx, posy, width, height);
+                ProtoInput64.SetSetWindowPosSettings(instanceHandle, posx, posy, width, height, scale);
             }
         }
 
