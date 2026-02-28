@@ -70,7 +70,7 @@ namespace Nucleus.Gaming.Coop.ProtoInput
         public bool XinputHook;
         public bool DinputDeviceHook;
         public SetWindowPosHook SetWindowPosHook;
-        public bool ScaleInput;
+        
         public bool BlockRawInputHook;
         public bool FindWindowHook;
         public bool CreateSingleHIDHook;
@@ -79,6 +79,8 @@ namespace Nucleus.Gaming.Coop.ProtoInput
         public MoveWindowHook MoveWindowHook;
         public bool AdjustWindowRectHook;
         public SetRemoveBorderHook SetRemoveBorderHook;
+        public int ScaleFromX;
+        public int ScaleFromY;
 
         public bool RawInputFilter;
         public bool MouseMoveFilter;

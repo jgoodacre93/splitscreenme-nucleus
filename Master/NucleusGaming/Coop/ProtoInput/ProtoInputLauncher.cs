@@ -278,7 +278,7 @@ namespace Nucleus.Gaming.Coop.ProtoInput
                 ProtoInput.protoInput.InstallHook(instanceHandle, ProtoInput.ProtoHookIDs.DinputOrderHookID);
             }
 
-            ProtoInput.protoInput.SetSetWindowPosSettings(instanceHandle, player.MonitorBounds.X, player.MonitorBounds.Y, player.MonitorBounds.Width, player.MonitorBounds.Height, gen.ProtoInput.ScaleInput);
+            ProtoInput.protoInput.SetSetWindowPosSettings(instanceHandle, player.MonitorBounds.X, player.MonitorBounds.Y, player.MonitorBounds.Width, player.MonitorBounds.Height);
             ProtoInput.protoInput.SetSetWindowPosDontResize(instanceHandle, gen.ProtoInput.SetWindowPosHook == SetWindowPosHook.DontResize);
             ProtoInput.protoInput.SetSetWindowPosDontReposition(instanceHandle, gen.ProtoInput.SetWindowPosHook == SetWindowPosHook.DontReposition);
 
@@ -337,6 +337,8 @@ namespace Nucleus.Gaming.Coop.ProtoInput
             }
 
             ProtoInput.protoInput.SetAdjustWindowRectSettings(instanceHandle, player.MonitorBounds.X, player.MonitorBounds.Y, player.MonitorBounds.Width, player.MonitorBounds.Height);
+
+            ProtoInput.protoInput.SetManualScaling(instanceHandle, gen.ProtoInput.ScaleFromX, gen.ProtoInput.ScaleFromY, player.MonitorBounds.Width, player.MonitorBounds.Height);
 
             //cursor impossible to move if 0 sens
             if (gen.ProtoInput.TranslateXSensitivity == 0)

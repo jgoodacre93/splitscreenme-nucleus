@@ -1491,8 +1491,11 @@ namespace Nucleus.Gaming
 
                 if (gen.XInputPlusDll?.Length > 0 && !gen.ProcessChangesAtEnd)
                 {
-                    XInputPlusDll.SetupXInputPlusDll(player, i, setupDll);
+                    if (gen.ProtoInput.TranslateXinputtoMKB)
+                        XInputPlusDll.SetupXInputPlusDll(player, i, setupDll, true);
+                    else XInputPlusDll.SetupXInputPlusDll(player, i, setupDll, false);
                 }
+                
 
                 if (gen.UseDevReorder && !gen.ProcessChangesAtEnd)
                 {
@@ -3081,7 +3084,9 @@ namespace Nucleus.Gaming
 
                 if (gen.XInputPlusDll?.Length > 0)
                 {
-                    XInputPlusDll.SetupXInputPlusDll(player, i, setupDll);
+                    if (gen.ProtoInput.TranslateXinputtoMKB)
+                        XInputPlusDll.SetupXInputPlusDll(player, i, setupDll, true);
+                    else XInputPlusDll.SetupXInputPlusDll(player, i, setupDll, false);
                 }
 
                 if (gen.UseDevReorder)

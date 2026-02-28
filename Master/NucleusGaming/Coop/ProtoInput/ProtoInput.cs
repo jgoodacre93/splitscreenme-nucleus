@@ -215,7 +215,7 @@ namespace Nucleus.Gaming.Coop.ProtoInput
             public static extern void DinputHookAlsoHooksGetDeviceState(uint instanceHandle, bool enable);
 
             [DllImport("ProtoInputLoader32.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
-            public static extern void SetSetWindowPosSettings(uint instanceHandle, int posx, int posy, int width, int height, bool scale);
+            public static extern void SetSetWindowPosSettings(uint instanceHandle, int posx, int posy, int width, int height);
 
             [DllImport("ProtoInputLoader32.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
             public static extern void SetSetWindowPosDontResize(uint instanceHandle, bool enable);
@@ -264,6 +264,9 @@ namespace Nucleus.Gaming.Coop.ProtoInput
 
             [DllImport("ProtoInputLoader32.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
             public static extern void SetAdjustWindowRectSettings(uint instanceHandle, int posx, int posy, int width, int height);
+
+            [DllImport("ProtoInputLoader32.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
+            public static extern void SetManualScaling(uint instanceHandle, int oldX, int oldY, int newX, int newY);
 
             [DllImport("ProtoInputLoader32.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
             public static extern void SetXinputtoMKBkeys(uint instanceHandle, int XinputtoMKBAkey, int XinputtoMKBBkey, int XinputtoMKBXkey, int XinputtoMKBYkey, int XinputtoMKBRSkey, int XinputtoMKBLSkey, int XinputtoMKBrightkey, int XinputtoMKBleftkey, int XinputtoMKBupkey, int XinputtoMKBdownkey, int XinputtoMKBstickR, int XinputtoMKBstickL, int XinputtoMKBstickright, int XinputtoMKBstickleft, int XinputtoMKBstickup, int XinputtoMKBstickdown, int XinputtoMKBoption, int XinputtoMKBstart, int XinputtoMKBsens, int XinputtoMKBsensmult);
@@ -382,7 +385,7 @@ namespace Nucleus.Gaming.Coop.ProtoInput
             public static extern void DinputHookAlsoHooksGetDeviceState(uint instanceHandle, bool enable);
 
             [DllImport("ProtoInputLoader64.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
-            public static extern void SetSetWindowPosSettings(uint instanceHandle, int posx, int posy, int width, int height, bool scale);
+            public static extern void SetSetWindowPosSettings(uint instanceHandle, int posx, int posy, int width, int height);
 
             [DllImport("ProtoInputLoader64.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
             public static extern void SetSetWindowPosDontResize(uint instanceHandle, bool enable);
@@ -447,6 +450,9 @@ namespace Nucleus.Gaming.Coop.ProtoInput
 
             [DllImport("ProtoInputLoader64.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
             public static extern void SetAdjustWindowRectSettings(uint instanceHandle, int posx, int posy, int width, int height);
+
+            [DllImport("ProtoInputLoader64.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
+            public static extern void SetManualScaling(uint instanceHandle, int oldX, int oldY, int newX, int newY);
 
             [DllImport("ProtoInputLoader64.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
             public static extern void SetXinputtoMKBkeys(uint instanceHandle, int XinputtoMKBAkey, int XinputtoMKBBkey, int XinputtoMKBXkey, int XinputtoMKBYkey, int XinputtoMKBRSkey, int XinputtoMKBLSkey, int XinputtoMKBrightkey, int XinputtoMKBleftkey, int XinputtoMKBupkey, int XinputtoMKBdownkey, int XinputtoMKBstickR, int XinputtoMKBstickL, int XinputtoMKBstickright, int XinputtoMKBstickleft, int XinputtoMKBstickup, int XinputtoMKBstickdown, int XinputtoMKBoption, int XinputtoMKBstart, int XinputtoMKBsens, int XinputtoMKBsensmult);
@@ -994,15 +1000,15 @@ namespace Nucleus.Gaming.Coop.ProtoInput
             }
         }
 
-        public void SetSetWindowPosSettings(uint instanceHandle, int posx, int posy, int width, int height, bool scale)
+        public void SetSetWindowPosSettings(uint instanceHandle, int posx, int posy, int width, int height)
         {
             if (IntPtr.Size == 4)
             {
-                ProtoInput32.SetSetWindowPosSettings(instanceHandle, posx, posy, width, height, scale);
+                ProtoInput32.SetSetWindowPosSettings(instanceHandle, posx, posy, width, height);
             }
             else
             {
-                ProtoInput64.SetSetWindowPosSettings(instanceHandle, posx, posy, width, height, scale);
+                ProtoInput64.SetSetWindowPosSettings(instanceHandle, posx, posy, width, height);
             }
         }
 
@@ -1163,6 +1169,17 @@ namespace Nucleus.Gaming.Coop.ProtoInput
             else
             {
                 ProtoInput64.SetAdjustWindowRectSettings(instanceHandle, posx, posy, width, height);
+            }
+        }
+        public void SetManualScaling(uint instanceHandle, int oldX, int oldY, int newX, int newY)
+        {
+            if (IntPtr.Size == 4)
+            {
+                ProtoInput32.SetManualScaling(instanceHandle, oldX, oldY, newX, newY);
+            }
+            else
+            {
+                ProtoInput64.SetManualScaling(instanceHandle, oldX, oldY, newX, newY);
             }
         }
         public void SetXinputtoMKBkeys(uint instanceHandle, int XinputtoMKBAkey, int XinputtoMKBBkey, int XinputtoMKBXkey, int XinputtoMKBYkey, int XinputtoMKBRSkey, int XinputtoMKBLSkey, int XinputtoMKBrightkey, int XinputtoMKBleftkey, int XinputtoMKBupkey, int XinputtoMKBdownkey, int XinputtoMKBstickR, int XinputtoMKBstickL, int XinputtoMKBstickright, int XinputtoMKBstickleft, int XinputtoMKBstickup, int XinputtoMKBstickdown, int XinputtoMKBoption, int XinputtoMKBstart, int XinputtoMKBsens, int XinputtoMKBsensmult)
