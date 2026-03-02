@@ -2,6 +2,7 @@
 using Nucleus.Gaming;
 using Nucleus.Gaming.Cache;
 using Nucleus.Gaming.Controls;
+using Nucleus.Gaming.Coop;
 using System.Collections.Generic;
 using System.Drawing;
 
@@ -52,7 +53,7 @@ namespace Nucleus.Coop
                 icons.Add(icon2);
             }
 
-            if ((game.Hook.XInputEnabled && !game.Hook.XInputReroute && !game.ProtoInput.DinputDeviceHook) || game.ProtoInput.XinputHook)
+            if ((game.Hook.XInputEnabled && !game.Hook.XInputReroute && !game.ProtoInput.DinputDeviceHook) || game.ProtoInput.XinputHook || game.ProtoInput.TranslateXinputtoMKB || GameProfile.UseXtoMKB)
             {
                 Bitmap bmp = ImageCache.GetImage(Globals.ThemeFolder + "xinput_icon.png");
                 float ratio = (float)bmp.Width / (float)bmp.Height;
@@ -62,8 +63,8 @@ namespace Nucleus.Coop
                 {
                     Name = "icon1",
                     Size = size,
-                    Image = bmp,             
-                    SizeMode = PictureBoxSizeMode.StretchImage,                   
+                    Image = bmp,
+                    SizeMode = PictureBoxSizeMode.StretchImage,
                 };
 
                 CustomToolTips.SetToolTip(icon, "Supports XInput gamepads (e.g. X360).", "icon1", new int[] { 190, 0, 0, 0 }, new int[] { 255, 255, 255, 255 });

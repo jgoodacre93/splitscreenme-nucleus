@@ -533,6 +533,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="copyoutput\SDL2.dll" />
+    <Content Include="gui\theme\default\xinputMKB_icon.png" />
     <Content Include="Resources\xboxControllerFront.png" />
     <None Include="Resources\log1.png" />
     <None Include="Resources\search_game.png" />

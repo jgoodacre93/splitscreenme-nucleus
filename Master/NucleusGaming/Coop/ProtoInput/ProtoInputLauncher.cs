@@ -340,11 +340,60 @@ namespace Nucleus.Gaming.Coop.ProtoInput
 
             ProtoInput.protoInput.SetManualScaling(instanceHandle, gen.ProtoInput.ScaleFromX, gen.ProtoInput.ScaleFromY, player.MonitorBounds.Width, player.MonitorBounds.Height);
 
-            //cursor impossible to move if 0 sens
+            //standard values for XinputtoMKB
             if (gen.ProtoInput.TranslateXSensitivity == 0)
                 gen.ProtoInput.TranslateXSensitivity = 12;
+
             if (gen.ProtoInput.TranslateXAccelration == 0)
                 gen.ProtoInput.TranslateXAccelration = 4;
+
+            if (gen.ProtoInput.TranslateXButtonA == 0)
+                gen.ProtoInput.TranslateXButtonA = (int)Key.R;
+
+            if (gen.ProtoInput.TranslateXButtonB == 0)
+                gen.ProtoInput.TranslateXButtonB = (int)Key.C;
+
+            if (gen.ProtoInput.TranslateXButtonX == 0)
+                gen.ProtoInput.TranslateXButtonX = (int)Key.E;
+
+            if (gen.ProtoInput.TranslateXButtonY == 0)
+                gen.ProtoInput.TranslateXButtonY = (int)Key.G;
+
+            if (gen.ProtoInput.TranslateXButtonRS == 0)
+                gen.ProtoInput.TranslateXButtonRS = (int)Key.Space;
+
+            if (gen.ProtoInput.TranslateXButtonLS == 0)
+                gen.ProtoInput.TranslateXButtonLS = (int)Key.Control;
+
+            if (gen.ProtoInput.TranslateXButtonUp == 0)
+                gen.ProtoInput.TranslateXButtonUp = (int)Key.Up;
+
+            if (gen.ProtoInput.TranslateXButtonDown == 0)
+                gen.ProtoInput.TranslateXButtonDown = (int)Key.Down;
+
+            if (gen.ProtoInput.TranslateXButtonRight == 0)
+                gen.ProtoInput.TranslateXButtonRight = (int)Key.Right;
+
+            if (gen.ProtoInput.TranslateXButtonLeft == 0)
+                gen.ProtoInput.TranslateXButtonLeft = (int)Key.Left;
+
+            if (gen.ProtoInput.TranslateXStickUp == 0)
+                gen.ProtoInput.TranslateXStickUp = (int)Key.W;
+
+            if (gen.ProtoInput.TranslateXStickDown == 0)
+                gen.ProtoInput.TranslateXStickDown = (int)Key.S;
+
+            if (gen.ProtoInput.TranslateXStickRight == 0)
+                gen.ProtoInput.TranslateXStickRight = (int)Key.D;
+
+            if (gen.ProtoInput.TranslateXStickLeft == 0)
+                gen.ProtoInput.TranslateXStickLeft = (int)Key.A;
+
+            if (gen.ProtoInput.TranslateXButtonStart == 0)
+                gen.ProtoInput.TranslateXButtonStart = (int)Key.Return;
+
+            if (gen.ProtoInput.TranslateXButtonOption == 0)
+                gen.ProtoInput.TranslateXButtonOption = (int)Key.Escape;
 
             ProtoInput.protoInput.SetXinputtoMKBkeys(instanceHandle, gen.ProtoInput.TranslateXButtonA, gen.ProtoInput.TranslateXButtonB, gen.ProtoInput.TranslateXButtonX, gen.ProtoInput.TranslateXButtonY, gen.ProtoInput.TranslateXButtonRS, gen.ProtoInput.TranslateXButtonLS, gen.ProtoInput.TranslateXButtonRight, gen.ProtoInput.TranslateXButtonLeft, gen.ProtoInput.TranslateXButtonUp, gen.ProtoInput.TranslateXButtonDown, gen.ProtoInput.TranslateXStickR, gen.ProtoInput.TranslateXStickL, gen.ProtoInput.TranslateXStickRight, gen.ProtoInput.TranslateXStickLeft, gen.ProtoInput.TranslateXStickUp, gen.ProtoInput.TranslateXStickDown , gen.ProtoInput.TranslateXButtonOption, gen.ProtoInput.TranslateXButtonStart, gen.ProtoInput.TranslateXSensitivity, gen.ProtoInput.TranslateXAccelration);
             ProtoInput.protoInput.SetXinputtoMKBCFG(instanceHandle, gen.ProtoInput.TranslateXSwapSticks, gen.ProtoInput.TranslateXScanner, gen.ProtoInput.TranslateXShouldersNextPoint, gen.ProtoInput.TranslateXAstatic, gen.ProtoInput.TranslateXAPointClick, gen.ProtoInput.TranslateXAPointMove, gen.ProtoInput.TranslateXBstatic, gen.ProtoInput.TranslateXBPointClick, gen.ProtoInput.TranslateXBPointMove, gen.ProtoInput.TranslateXXstatic, gen.ProtoInput.TranslateXXPointClick, gen.ProtoInput.TranslateXXPointMove, gen.ProtoInput.TranslateXYstatic, gen.ProtoInput.TranslateXYPointClick, gen.ProtoInput.TranslateXYPointMove);

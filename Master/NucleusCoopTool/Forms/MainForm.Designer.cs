@@ -100,12 +100,10 @@ namespace Nucleus.Coop
             this.btn_Play = new System.Windows.Forms.Button();
             this.btn_Prev = new System.Windows.Forms.Button();
             this.btn_Next = new System.Windows.Forms.Button();
-            this.PlayTimePanel = new Nucleus.Coop.Controls.PlaytimePanel();
             this.ProfileButtonsPanel = new DoubleBufferPanel();
             this.ProfileButtonPanelLockPb = new System.Windows.Forms.Label();
             this.ProfileSettings_btn = new System.Windows.Forms.Button();
             this.ProfilesList_btn = new System.Windows.Forms.Button();
-            this.SaveProfileSwitch = new Nucleus.Coop.Controls.CustomSwitch();
             this.Icons_Container = new BufferedFlowLayoutPanel();
             this.HandlerNotesContainer = new DoubleBufferPanel();
             this.ExpandHandlerNotes_btn = new System.Windows.Forms.PictureBox();
@@ -129,6 +127,9 @@ namespace Nucleus.Coop
             this.txt_version = new System.Windows.Forms.Label();
             this.logo = new System.Windows.Forms.PictureBox();
             this.BigLogo = new System.Windows.Forms.PictureBox();
+            this.PlayTimePanel = new Nucleus.Coop.Controls.PlaytimePanel();
+            this.SaveProfileSwitch = new Nucleus.Coop.Controls.CustomSwitch();
+            this.XtoMKB = new Nucleus.Coop.Controls.CustomCheckBox();
             this.GameOptionMenu.SuspendLayout();
             this.socialLinksMenu.SuspendLayout();
             this.HomeScreen.SuspendLayout();
@@ -188,7 +189,7 @@ namespace Nucleus.Coop
             this.removeGameMenuItem});
             this.GameOptionMenu.Name = "gameContextMenuStrip";
             this.GameOptionMenu.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.GameOptionMenu.Size = new System.Drawing.Size(306, 662);
+            this.GameOptionMenu.Size = new System.Drawing.Size(306, 640);
             // 
             // gameNameMenuItem
             // 
@@ -703,17 +704,6 @@ namespace Nucleus.Coop
             this.btn_Next.TabIndex = 11;
             this.btn_Next.UseVisualStyleBackColor = false;
             // 
-            // PlayTimePanel
-            // 
-            this.PlayTimePanel.AutoSize = true;
-            this.PlayTimePanel.LastPlayed = null;
-            this.PlayTimePanel.Location = new System.Drawing.Point(4, 41);
-            this.PlayTimePanel.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.PlayTimePanel.Name = "PlayTimePanel";
-            this.PlayTimePanel.Playtime = null;
-            this.PlayTimePanel.Size = new System.Drawing.Size(174, 28);
-            this.PlayTimePanel.TabIndex = 104;
-            // 
             // ProfileButtonsPanel
             // 
             this.ProfileButtonsPanel.Controls.Add(this.ProfileButtonPanelLockPb);
@@ -768,22 +758,6 @@ namespace Nucleus.Coop
             this.ProfilesList_btn.Size = new System.Drawing.Size(21, 21);
             this.ProfilesList_btn.TabIndex = 3;
             this.ProfilesList_btn.UseVisualStyleBackColor = false;
-            // 
-            // SaveProfileSwitch
-            // 
-            this.SaveProfileSwitch.AutoSize = true;
-            this.SaveProfileSwitch.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.SaveProfileSwitch.BackColor = System.Drawing.Color.Transparent;
-            this.SaveProfileSwitch.Location = new System.Drawing.Point(51, 4);
-            this.SaveProfileSwitch.Margin = new System.Windows.Forms.Padding(1);
-            this.SaveProfileSwitch.Name = "SaveProfileSwitch";
-            this.SaveProfileSwitch.RadioBackColor = System.Drawing.Color.Transparent;
-            this.SaveProfileSwitch.RadioChecked = true;
-            this.SaveProfileSwitch.RadioText = "Save Profile";
-            this.SaveProfileSwitch.RadioTooltipText = " If turned off the current setup will not be saved to a new profile.";
-            this.SaveProfileSwitch.Size = new System.Drawing.Size(109, 16);
-            this.SaveProfileSwitch.TabIndex = 105;
-            this.SaveProfileSwitch.TextColor = System.Drawing.Color.White;
             // 
             // Icons_Container
             // 
@@ -860,6 +834,7 @@ namespace Nucleus.Coop
             | System.Windows.Forms.AnchorStyles.Right)));
             this.WindowPanel.BackColor = System.Drawing.Color.Transparent;
             this.WindowPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.WindowPanel.Controls.Add(this.XtoMKB);
             this.WindowPanel.Controls.Add(this.VirtualMouseToggle);
             this.WindowPanel.Controls.Add(this.MainButtonsPanel);
             this.WindowPanel.Controls.Add(this.InputsTextLabel);
@@ -894,7 +869,7 @@ namespace Nucleus.Coop
             this.MainButtonsPanel.Controls.Add(this.Tutorial_btn);
             this.MainButtonsPanel.Controls.Add(this.SettingsButton);
             this.MainButtonsPanel.Controls.Add(this.btnSearch);
-            this.MainButtonsPanel.Location = new System.Drawing.Point(469, 4);
+            this.MainButtonsPanel.Location = new System.Drawing.Point(348, 8);
             this.MainButtonsPanel.Name = "MainButtonsPanel";
             this.MainButtonsPanel.Size = new System.Drawing.Size(209, 30);
             this.MainButtonsPanel.TabIndex = 105;
@@ -908,7 +883,7 @@ namespace Nucleus.Coop
             this.btn_downloadAssets.FlatAppearance.BorderSize = 0;
             this.btn_downloadAssets.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btn_downloadAssets.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_downloadAssets.Location = new System.Drawing.Point(78, 4);
+            this.btn_downloadAssets.Location = new System.Drawing.Point(132, 4);
             this.btn_downloadAssets.Margin = new System.Windows.Forms.Padding(1);
             this.btn_downloadAssets.Name = "btn_downloadAssets";
             this.btn_downloadAssets.Size = new System.Drawing.Size(25, 25);
@@ -1121,6 +1096,48 @@ namespace Nucleus.Coop
             this.BigLogo.TabIndex = 15;
             this.BigLogo.TabStop = false;
             // 
+            // PlayTimePanel
+            // 
+            this.PlayTimePanel.AutoSize = true;
+            this.PlayTimePanel.LastPlayed = null;
+            this.PlayTimePanel.Location = new System.Drawing.Point(4, 41);
+            this.PlayTimePanel.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.PlayTimePanel.Name = "PlayTimePanel";
+            this.PlayTimePanel.Playtime = null;
+            this.PlayTimePanel.Size = new System.Drawing.Size(174, 28);
+            this.PlayTimePanel.TabIndex = 104;
+            // 
+            // SaveProfileSwitch
+            // 
+            this.SaveProfileSwitch.AutoSize = true;
+            this.SaveProfileSwitch.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.SaveProfileSwitch.BackColor = System.Drawing.Color.Transparent;
+            this.SaveProfileSwitch.Location = new System.Drawing.Point(51, 4);
+            this.SaveProfileSwitch.Margin = new System.Windows.Forms.Padding(1);
+            this.SaveProfileSwitch.Name = "SaveProfileSwitch";
+            this.SaveProfileSwitch.RadioBackColor = System.Drawing.Color.Transparent;
+            this.SaveProfileSwitch.RadioChecked = true;
+            this.SaveProfileSwitch.RadioText = "Save Profile";
+            this.SaveProfileSwitch.RadioTooltipText = " If turned off the current setup will not be saved to a new profile.";
+            this.SaveProfileSwitch.Size = new System.Drawing.Size(109, 16);
+            this.SaveProfileSwitch.TabIndex = 105;
+            this.SaveProfileSwitch.TextColor = System.Drawing.Color.White;
+            // 
+            // XtoMKB
+            // 
+            this.XtoMKB.BackColor = System.Drawing.Color.Transparent;
+            this.XtoMKB.BorderColor = System.Drawing.Color.DimGray;
+            this.XtoMKB.CheckColor = System.Drawing.Color.MediumSpringGreen;
+            this.XtoMKB.ForeColor = System.Drawing.Color.Silver;
+            this.XtoMKB.Location = new System.Drawing.Point(687, 8);
+            this.XtoMKB.Name = "XtoMKB";
+            this.XtoMKB.SelectionColor = System.Drawing.Color.Black;
+            this.XtoMKB.Size = new System.Drawing.Size(209, 30);
+            this.XtoMKB.TabIndex = 296;
+            this.XtoMKB.Text = "Translate X to MKB";
+            this.XtoMKB.UseVisualStyleBackColor = false;
+            this.XtoMKB.CheckedChanged += new System.EventHandler(this.XtoMKB_CheckedChanged);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -1256,5 +1273,6 @@ namespace Nucleus.Coop
         private ToolStripSeparator toolStripSeparator5;
         private ToolStripSeparator toolStripSeparator4;
         public ToolStripMenuItem useGamepadButtonPressMenuItem;
+        private CustomCheckBox XtoMKB;
     }
 }

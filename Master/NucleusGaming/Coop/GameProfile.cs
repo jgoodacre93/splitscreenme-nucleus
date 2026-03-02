@@ -191,6 +191,13 @@ namespace Nucleus.Gaming.Coop
             set => useNicknames = value;
         }
 
+        private static bool useXtoMKB;
+        public static bool UseXtoMKB
+        {
+            get => useXtoMKB;
+            set => useXtoMKB = value;
+        }
+
         private static bool audioDefaultSettings;
         public static bool AudioDefaultSettings
         {

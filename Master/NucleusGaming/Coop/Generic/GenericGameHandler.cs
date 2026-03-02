@@ -262,6 +262,11 @@ namespace Nucleus.Gaming
 
         public string Play()
         {
+            if (GameProfile.UseXtoMKB)
+            { 
+                gen.ProtoInput.TranslateXinputtoMKB = true;
+                MessageBox.Show("Are you sure", "oh okay", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly, false);
+            }
             if (!App_Misc.IgnoreInputLockReminder)
             {
                 MessageBox.Show("Some handlers will require you to press the End key to lock input. Remember to unlock input by pressing End again when you finish playing. You can disable this message in the Settings. ", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly, false);
@@ -3082,7 +3087,7 @@ namespace Nucleus.Gaming
                     setupDll = false;
                 }
 
-                if (gen.XInputPlusDll?.Length > 0)
+                if (gen.XInputPlusDll?.Length > 0 )
                 {
                     if (gen.ProtoInput.TranslateXinputtoMKB)
                         XInputPlusDll.SetupXInputPlusDll(player, i, setupDll, true);
