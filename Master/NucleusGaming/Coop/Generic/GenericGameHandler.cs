@@ -265,7 +265,6 @@ namespace Nucleus.Gaming
             if (GameProfile.UseXtoMKB)
             { 
                 gen.ProtoInput.TranslateXinputtoMKB = true;
-                MessageBox.Show("Are you sure", "oh okay", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly, false);
             }
             if (!App_Misc.IgnoreInputLockReminder)
             {
