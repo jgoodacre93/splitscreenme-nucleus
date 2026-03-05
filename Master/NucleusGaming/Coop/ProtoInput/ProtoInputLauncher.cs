@@ -379,7 +379,6 @@ namespace Nucleus.Gaming.Coop.ProtoInput
 
             if (gen.ProtoInput.TranslateXStickUp == 0)
                 gen.ProtoInput.TranslateXStickUp = (int)Key.W;
-
             if (gen.ProtoInput.TranslateXStickDown == 0)
                 gen.ProtoInput.TranslateXStickDown = (int)Key.S;
 
@@ -474,12 +473,19 @@ namespace Nucleus.Gaming.Coop.ProtoInput
 
             trackedInstanceHandles.Add(instanceHandle);
 
+            if (gen.ForwardWindowToProtoInput)
+            {
+                ProtoInput.protoInput.UpdateMainWindowHandle(
+                    (uint)instanceHandle,
+                    (ulong)Coop.ProtoInput.GetMainWindow.NucleusGetMainWindowHandle(player.ProcessData?.Process)
+                );
+            }
             if (gen.ProtoInput.FreezeExternalInputWhenInputNotLocked)
             {
                 NotifyInputLockChange();
             }
         }
-
+        
         public static void NotifyInputLockChange()
         {
             bool freezeExternal = !LockInputRuntime.IsLocked;
