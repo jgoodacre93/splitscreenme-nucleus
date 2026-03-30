@@ -52,8 +52,9 @@ namespace Nucleus.Gaming.Coop.ProtoInput
         public int TranslateXButtonStart;
         public int TranslateXSensitivity;
         public int TranslateXAccelration;
+        public int TranslateXDeadzone;
 
-       
+
         public bool RegisterRawInputHook;
         public bool GetRawInputDataHook;
         public bool MessageFilterHook;
@@ -121,6 +122,8 @@ namespace Nucleus.Gaming.Coop.ProtoInput
         public bool UseDinputRedirection;
 
         public bool UseOpenXinput;
+
+        public bool TranslateMKBtoXinput;
 
         public bool MultipleProtoControllers;
 

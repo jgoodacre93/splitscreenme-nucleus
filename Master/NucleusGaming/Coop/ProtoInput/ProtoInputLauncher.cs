@@ -2,10 +2,13 @@ using Nucleus.Gaming.Coop.InputManagement;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Numerics;
 using System.Windows.Forms;
+
 
 namespace Nucleus.Gaming.Coop.ProtoInput
 {
+    
     public static class ProtoInputLauncher
     {
         private static List<uint> trackedInstanceHandles = new List<uint>();
@@ -257,8 +260,9 @@ namespace Nucleus.Gaming.Coop.ProtoInput
                 ProtoInput.protoInput.InstallHook(instanceHandle, ProtoInput.ProtoHookIDs.GetCursorInfoID);
             }
             ProtoInput.protoInput.SetUseOpenXinput(instanceHandle, gen.ProtoInput.UseOpenXinput);
+            ProtoInput.protoInput.SetTranslateMKBtoXinput(instanceHandle, gen.ProtoInput.TranslateMKBtoXinput);
             ProtoInput.protoInput.SetUseDinputRedirection(instanceHandle, gen.ProtoInput.UseDinputRedirection);
-            if (gen.ProtoInput.XinputHook)
+            if (gen.ProtoInput.XinputHook || gen.ProtoInput.TranslateMKBtoXinput) //TranslateMKBtoXinput depend on this
             {
                 ProtoInput.protoInput.InstallHook(instanceHandle, ProtoInput.ProtoHookIDs.XinputHookID);
             }
@@ -394,7 +398,7 @@ namespace Nucleus.Gaming.Coop.ProtoInput
             if (gen.ProtoInput.TranslateXButtonOption == 0)
                 gen.ProtoInput.TranslateXButtonOption = (int)Key.Escape;
 
-            ProtoInput.protoInput.SetXinputtoMKBkeys(instanceHandle, gen.ProtoInput.TranslateXButtonA, gen.ProtoInput.TranslateXButtonB, gen.ProtoInput.TranslateXButtonX, gen.ProtoInput.TranslateXButtonY, gen.ProtoInput.TranslateXButtonRS, gen.ProtoInput.TranslateXButtonLS, gen.ProtoInput.TranslateXButtonRight, gen.ProtoInput.TranslateXButtonLeft, gen.ProtoInput.TranslateXButtonUp, gen.ProtoInput.TranslateXButtonDown, gen.ProtoInput.TranslateXStickR, gen.ProtoInput.TranslateXStickL, gen.ProtoInput.TranslateXStickRight, gen.ProtoInput.TranslateXStickLeft, gen.ProtoInput.TranslateXStickUp, gen.ProtoInput.TranslateXStickDown , gen.ProtoInput.TranslateXButtonOption, gen.ProtoInput.TranslateXButtonStart, gen.ProtoInput.TranslateXSensitivity, gen.ProtoInput.TranslateXAccelration);
+            ProtoInput.protoInput.SetXinputtoMKBkeys(instanceHandle, gen.ProtoInput.TranslateXButtonA, gen.ProtoInput.TranslateXButtonB, gen.ProtoInput.TranslateXButtonX, gen.ProtoInput.TranslateXButtonY, gen.ProtoInput.TranslateXButtonRS, gen.ProtoInput.TranslateXButtonLS, gen.ProtoInput.TranslateXButtonRight, gen.ProtoInput.TranslateXButtonLeft, gen.ProtoInput.TranslateXButtonUp, gen.ProtoInput.TranslateXButtonDown, gen.ProtoInput.TranslateXStickR, gen.ProtoInput.TranslateXStickL, gen.ProtoInput.TranslateXStickRight, gen.ProtoInput.TranslateXStickLeft, gen.ProtoInput.TranslateXStickUp, gen.ProtoInput.TranslateXStickDown , gen.ProtoInput.TranslateXButtonOption, gen.ProtoInput.TranslateXButtonStart, gen.ProtoInput.TranslateXSensitivity, gen.ProtoInput.TranslateXAccelration, gen.ProtoInput.TranslateXDeadzone);
             ProtoInput.protoInput.SetXinputtoMKBCFG(instanceHandle, gen.ProtoInput.TranslateXSwapSticks, gen.ProtoInput.TranslateXScanner, gen.ProtoInput.TranslateXShouldersNextPoint, gen.ProtoInput.TranslateXAstatic, gen.ProtoInput.TranslateXAPointClick, gen.ProtoInput.TranslateXAPointMove, gen.ProtoInput.TranslateXBstatic, gen.ProtoInput.TranslateXBPointClick, gen.ProtoInput.TranslateXBPointMove, gen.ProtoInput.TranslateXXstatic, gen.ProtoInput.TranslateXXPointClick, gen.ProtoInput.TranslateXXPointMove, gen.ProtoInput.TranslateXYstatic, gen.ProtoInput.TranslateXYPointClick, gen.ProtoInput.TranslateXYPointMove);
             if (gen.ProtoInput.AdjustWindowRectHook)
             {
@@ -470,19 +474,22 @@ namespace Nucleus.Gaming.Coop.ProtoInput
                 );
 
             //SetExternalFreezeFakeInput(instanceHandle, !isInputCurrentlyLocked && freezeGameInputWhileInputNotLocked);
-
-            trackedInstanceHandles.Add(instanceHandle);
-
             if (gen.ForwardWindowToProtoInput)
             {
                 ProtoInput.protoInput.UpdateMainWindowHandle(
-                    (uint)instanceHandle,
-                    (ulong)Coop.ProtoInput.GetMainWindow.NucleusGetMainWindowHandle(player.ProcessData?.Process)
+                (uint)instanceHandle,
+                    (ulong)GetMainWindow.NucleusGetMainWindowHandle(player.ProcessData?.Process)
                 );
+
             }
+
+            trackedInstanceHandles.Add(instanceHandle);
+
+
             if (gen.ProtoInput.FreezeExternalInputWhenInputNotLocked)
             {
                 NotifyInputLockChange();
+
             }
         }
         

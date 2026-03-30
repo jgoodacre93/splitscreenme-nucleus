@@ -175,6 +175,9 @@ namespace Nucleus.Gaming.Coop.ProtoInput
             public static extern void SetUseOpenXinput(uint instanceHandle, bool useOpenXinput);
 
             [DllImport("ProtoInputLoader32.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
+            public static extern void SetTranslateMKBtoXinput(uint instanceHandle, bool TranslateMKBtoXinput);
+
+            [DllImport("ProtoInputLoader32.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
             public static extern void SetShowCursorWhenImageUpdated(uint instanceHandle, bool enable);
 
             [DllImport("ProtoInputLoader32.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
@@ -269,7 +272,7 @@ namespace Nucleus.Gaming.Coop.ProtoInput
             public static extern void SetManualScaling(uint instanceHandle, int oldX, int oldY, int newX, int newY);
 
             [DllImport("ProtoInputLoader32.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
-            public static extern void SetXinputtoMKBkeys(uint instanceHandle, int XinputtoMKBAkey, int XinputtoMKBBkey, int XinputtoMKBXkey, int XinputtoMKBYkey, int XinputtoMKBRSkey, int XinputtoMKBLSkey, int XinputtoMKBrightkey, int XinputtoMKBleftkey, int XinputtoMKBupkey, int XinputtoMKBdownkey, int XinputtoMKBstickR, int XinputtoMKBstickL, int XinputtoMKBstickright, int XinputtoMKBstickleft, int XinputtoMKBstickup, int XinputtoMKBstickdown, int XinputtoMKBoption, int XinputtoMKBstart, int XinputtoMKBsens, int XinputtoMKBsensmult);
+            public static extern void SetXinputtoMKBkeys(uint instanceHandle, int XinputtoMKBAkey, int XinputtoMKBBkey, int XinputtoMKBXkey, int XinputtoMKBYkey, int XinputtoMKBRSkey, int XinputtoMKBLSkey, int XinputtoMKBrightkey, int XinputtoMKBleftkey, int XinputtoMKBupkey, int XinputtoMKBdownkey, int XinputtoMKBstickR, int XinputtoMKBstickL, int XinputtoMKBstickright, int XinputtoMKBstickleft, int XinputtoMKBstickup, int XinputtoMKBstickdown, int XinputtoMKBoption, int XinputtoMKBstart, int XinputtoMKBsens, int XinputtoMKBsensmult, int XinputtoMKBDeadzone);
 
             [DllImport("ProtoInputLoader32.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
             public static extern void SetXinputtoMKBCFG(uint instanceHandle, bool stickinvert, bool scanoption, bool shoulderswap, bool astatic, bool aclick, bool amove, bool bstatic, bool bclick, bool bmove, bool xstatic, bool xclick, bool xmove, bool ystatic, bool yclick, bool ymove);
@@ -360,6 +363,9 @@ namespace Nucleus.Gaming.Coop.ProtoInput
             [DllImport("ProtoInputLoader64.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
             public static extern void SetUseOpenXinput(uint instanceHandle, bool useOpenXinput);
 
+            [DllImport("ProtoInputLoader64.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
+            public static extern void SetTranslateMKBtoXinput(uint instanceHandle, bool TranslateMKBtoXinput);
+
             // Both of these functions require RenameHandlesHookHookID hook
             [DllImport("ProtoInputLoader64.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
             public static extern void AddHandleToRename(uint instanceHandle, string name);
@@ -455,7 +461,7 @@ namespace Nucleus.Gaming.Coop.ProtoInput
             public static extern void SetManualScaling(uint instanceHandle, int oldX, int oldY, int newX, int newY);
 
             [DllImport("ProtoInputLoader64.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
-            public static extern void SetXinputtoMKBkeys(uint instanceHandle, int XinputtoMKBAkey, int XinputtoMKBBkey, int XinputtoMKBXkey, int XinputtoMKBYkey, int XinputtoMKBRSkey, int XinputtoMKBLSkey, int XinputtoMKBrightkey, int XinputtoMKBleftkey, int XinputtoMKBupkey, int XinputtoMKBdownkey, int XinputtoMKBstickR, int XinputtoMKBstickL, int XinputtoMKBstickright, int XinputtoMKBstickleft, int XinputtoMKBstickup, int XinputtoMKBstickdown, int XinputtoMKBoption, int XinputtoMKBstart, int XinputtoMKBsens, int XinputtoMKBsensmult);
+            public static extern void SetXinputtoMKBkeys(uint instanceHandle, int XinputtoMKBAkey, int XinputtoMKBBkey, int XinputtoMKBXkey, int XinputtoMKBYkey, int XinputtoMKBRSkey, int XinputtoMKBLSkey, int XinputtoMKBrightkey, int XinputtoMKBleftkey, int XinputtoMKBupkey, int XinputtoMKBdownkey, int XinputtoMKBstickR, int XinputtoMKBstickL, int XinputtoMKBstickright, int XinputtoMKBstickleft, int XinputtoMKBstickup, int XinputtoMKBstickdown, int XinputtoMKBoption, int XinputtoMKBstart, int XinputtoMKBsens, int XinputtoMKBsensmult, int XinputtoMKBDeadzone);
 
             [DllImport("ProtoInputLoader64.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
             public static extern void SetXinputtoMKBCFG(uint instanceHandle, bool stickinvert, bool scanoption, bool shoulderswap, bool astatic, bool aclick, bool amove, bool bstatic, bool bclick, bool bmove, bool xstatic, bool xclick, bool xmove, bool ystatic, bool yclick, bool ymove);
@@ -838,6 +844,18 @@ namespace Nucleus.Gaming.Coop.ProtoInput
             }
         }
 
+        public void SetTranslateMKBtoXinput(uint instanceHandle, bool TranslateMKBtoXinput)
+        {
+            if (IntPtr.Size == 4)
+            {
+                ProtoInput32.SetTranslateMKBtoXinput(instanceHandle, TranslateMKBtoXinput);
+            }
+            else
+            {
+                ProtoInput64.SetTranslateMKBtoXinput(instanceHandle, TranslateMKBtoXinput);
+            }
+        }
+
         public void SetShowCursorWhenImageUpdated(uint instanceHandle, bool enable)
         {
             if (IntPtr.Size == 4)
@@ -1182,15 +1200,15 @@ namespace Nucleus.Gaming.Coop.ProtoInput
                 ProtoInput64.SetManualScaling(instanceHandle, oldX, oldY, newX, newY);
             }
         }
-        public void SetXinputtoMKBkeys(uint instanceHandle, int XinputtoMKBAkey, int XinputtoMKBBkey, int XinputtoMKBXkey, int XinputtoMKBYkey, int XinputtoMKBRSkey, int XinputtoMKBLSkey, int XinputtoMKBrightkey, int XinputtoMKBleftkey, int XinputtoMKBupkey, int XinputtoMKBdownkey, int XinputtoMKBstickR, int XinputtoMKBstickL, int XinputtoMKBstickright, int XinputtoMKBstickleft, int XinputtoMKBstickup, int XinputtoMKBstickdown, int XinputtoMKBoption, int XinputtoMKBstart, int XinputtoMKBsens, int XinputtoMKBsensmult)
+        public void SetXinputtoMKBkeys(uint instanceHandle, int XinputtoMKBAkey, int XinputtoMKBBkey, int XinputtoMKBXkey, int XinputtoMKBYkey, int XinputtoMKBRSkey, int XinputtoMKBLSkey, int XinputtoMKBrightkey, int XinputtoMKBleftkey, int XinputtoMKBupkey, int XinputtoMKBdownkey, int XinputtoMKBstickR, int XinputtoMKBstickL, int XinputtoMKBstickright, int XinputtoMKBstickleft, int XinputtoMKBstickup, int XinputtoMKBstickdown, int XinputtoMKBoption, int XinputtoMKBstart, int XinputtoMKBsens, int XinputtoMKBsensmult, int XinputtoMKBDeadzone)
         {
             if (IntPtr.Size == 4)
             {
-                ProtoInput32.SetXinputtoMKBkeys(instanceHandle, XinputtoMKBAkey, XinputtoMKBBkey, XinputtoMKBXkey, XinputtoMKBYkey, XinputtoMKBRSkey, XinputtoMKBLSkey, XinputtoMKBrightkey, XinputtoMKBleftkey, XinputtoMKBupkey, XinputtoMKBdownkey, XinputtoMKBstickR, XinputtoMKBstickL, XinputtoMKBstickright, XinputtoMKBstickleft, XinputtoMKBstickup, XinputtoMKBstickdown, XinputtoMKBoption, XinputtoMKBstart, XinputtoMKBsens, XinputtoMKBsensmult);
+                ProtoInput32.SetXinputtoMKBkeys(instanceHandle, XinputtoMKBAkey, XinputtoMKBBkey, XinputtoMKBXkey, XinputtoMKBYkey, XinputtoMKBRSkey, XinputtoMKBLSkey, XinputtoMKBrightkey, XinputtoMKBleftkey, XinputtoMKBupkey, XinputtoMKBdownkey, XinputtoMKBstickR, XinputtoMKBstickL, XinputtoMKBstickright, XinputtoMKBstickleft, XinputtoMKBstickup, XinputtoMKBstickdown, XinputtoMKBoption, XinputtoMKBstart, XinputtoMKBsens, XinputtoMKBsensmult, XinputtoMKBDeadzone);
             }
             else
             {
-                ProtoInput64.SetXinputtoMKBkeys(instanceHandle, XinputtoMKBAkey, XinputtoMKBBkey, XinputtoMKBXkey, XinputtoMKBYkey, XinputtoMKBRSkey, XinputtoMKBLSkey, XinputtoMKBrightkey, XinputtoMKBleftkey, XinputtoMKBupkey, XinputtoMKBdownkey, XinputtoMKBstickR, XinputtoMKBstickL, XinputtoMKBstickright, XinputtoMKBstickleft, XinputtoMKBstickup, XinputtoMKBstickdown, XinputtoMKBoption, XinputtoMKBstart, XinputtoMKBsens, XinputtoMKBsensmult);
+                ProtoInput64.SetXinputtoMKBkeys(instanceHandle, XinputtoMKBAkey, XinputtoMKBBkey, XinputtoMKBXkey, XinputtoMKBYkey, XinputtoMKBRSkey, XinputtoMKBLSkey, XinputtoMKBrightkey, XinputtoMKBleftkey, XinputtoMKBupkey, XinputtoMKBdownkey, XinputtoMKBstickR, XinputtoMKBstickL, XinputtoMKBstickright, XinputtoMKBstickleft, XinputtoMKBstickup, XinputtoMKBstickdown, XinputtoMKBoption, XinputtoMKBstart, XinputtoMKBsens, XinputtoMKBsensmult, XinputtoMKBDeadzone);
             }
         }
         public void SetXinputtoMKBCFG(uint instanceHandle, bool stickinvert, bool scanoption, bool shoulderswap, bool astatic, bool aclick, bool amove, bool bstatic, bool bclick, bool bmove, bool xstatic, bool xclick, bool xmove, bool ystatic, bool yclick, bool ymove)
