@@ -125,6 +125,9 @@ namespace Nucleus.Gaming.Coop.ProtoInput
 
         public bool TranslateMKBtoXinput;
 
+        public bool ReRegisterInput;
+        public bool PointerInMouse;
+
         public bool MultipleProtoControllers;
 
         public bool DinputHookAlsoHooksGetDeviceState;

@@ -2,7 +2,6 @@ using Nucleus.Gaming.Coop.InputManagement;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Numerics;
 using System.Windows.Forms;
 
 
@@ -211,6 +210,15 @@ namespace Nucleus.Gaming.Coop.ProtoInput
             if (gen.ProtoInput.GetKeyboardStateHook)
             {
                 ProtoInput.protoInput.InstallHook(instanceHandle, ProtoInput.ProtoHookIDs.GetKeyboardStateHookID);
+            }
+
+            if (gen.ProtoInput.ReRegisterInput)
+            {
+                ProtoInput.protoInput.SetReregisterinput(instanceHandle, gen.ProtoInput.ReRegisterInput);
+            }
+            if (gen.ProtoInput.PointerInMouse)
+            {
+                ProtoInput.protoInput.SetPointerInMouse(instanceHandle, gen.ProtoInput.PointerInMouse);
             }
 
             ProtoInput.protoInput.SetShowCursorWhenImageUpdated(instanceHandle, !gen.ProtoInput.DontShowCursorWhenImageUpdated);

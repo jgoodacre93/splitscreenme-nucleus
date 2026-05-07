@@ -7,6 +7,7 @@ using Nucleus.Gaming.Coop.Generic;
 using Nucleus.Gaming.Coop.Generic.Cursor;
 using Nucleus.Gaming.Coop.InputManagement;
 using Nucleus.Gaming.Coop.InputManagement.Gamepads;
+using Nucleus.Gaming.Coop.InputManagement.Structs;
 using Nucleus.Gaming.Coop.ProtoInput;
 using Nucleus.Gaming.Forms;
 using Nucleus.Gaming.Platform.PCSpecs;
@@ -262,10 +263,6 @@ namespace Nucleus.Gaming
 
         public string Play()
         {
-            if (GameProfile.UseXtoMKB)
-            { 
-                gen.ProtoInput.TranslateXinputtoMKB = true;
-            }
             if (!App_Misc.IgnoreInputLockReminder)
             {
                 MessageBox.Show("Some handlers will require you to press the End key to lock input. Remember to unlock input by pressing End again when you finish playing. You can disable this message in the Settings. ", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly, false);
@@ -1495,11 +1492,10 @@ namespace Nucleus.Gaming
 
                 if (gen.XInputPlusDll?.Length > 0 && !gen.ProcessChangesAtEnd)
                 {
-                    if (gen.ProtoInput.TranslateXinputtoMKB)
-                        XInputPlusDll.SetupXInputPlusDll(player, i, setupDll, true);
+                    if (gen.ProtoInput.TranslateMKBtoXinput && (player.IsRawMouse || player.IsRawKeyboard))
+                        XInputPlusDll.SetupXInputPlusDll(player, i, setupDll, true); //last bool is block Xinput
                     else XInputPlusDll.SetupXInputPlusDll(player, i, setupDll, false);
                 }
-                
 
                 if (gen.UseDevReorder && !gen.ProcessChangesAtEnd)
                 {
@@ -3088,8 +3084,9 @@ namespace Nucleus.Gaming
 
                 if (gen.XInputPlusDll?.Length > 0 )
                 {
-                    if (gen.ProtoInput.TranslateXinputtoMKB)
-                        XInputPlusDll.SetupXInputPlusDll(player, i, setupDll, true);
+                    //last bool is block Xinput. used to block real Xinput if translating
+                    if (gen.ProtoInput.TranslateMKBtoXinput && (player.IsRawMouse || player.IsRawKeyboard))
+                        XInputPlusDll.SetupXInputPlusDll(player, i, setupDll, true); 
                     else XInputPlusDll.SetupXInputPlusDll(player, i, setupDll, false);
                 }
 

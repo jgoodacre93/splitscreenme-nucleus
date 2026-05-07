@@ -333,57 +333,5 @@ namespace Nucleus.Coop
         {
             UI_Graphics.MainFormPaintBackground(e);
         }
-
-        private void btnSearch_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btn_debuglog_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btn_Extract_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Tutorial_btn_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void SettingsButton_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txt_version_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void logo_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void XtoMKB_CheckedChanged(object sender, EventArgs e)
-        {
-            var ckb = sender as CustomCheckBox;
-            GameProfile.UseXtoMKB = ckb.Checked;
-            UI_Interface.GameListContainer.Refresh();
-            UI_Interface.SetupPanel.Refresh();
-            UI_Interface.WindowPanel.Refresh();
-            UI_Interface.InfoPanel.Refresh();
-            UI_Interface.HomeScreen.Refresh();
-            UI_Interface.MainForm.Refresh();
-
-            UI_Interface.IconsContainer.Controls.Clear();
-            UI_Interface.IconsContainer.Controls.AddRange(InputIcons.SetInputsIcons(Core_Interface.Current_GenericGameInfo));
-            UI_Interface.IconsContainer.Visible = true;
-
-        }
     }
 }

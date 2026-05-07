@@ -241,6 +241,12 @@ namespace Nucleus.Gaming.Coop.ProtoInput
             [DllImport("ProtoInputLoader32.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
             public static extern void SetRawInputBypass(uint instanceHandle, bool enabled);
 
+            [DllImport("ProtoInputLoader32.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
+            public static extern void SetReregisterinput(uint instanceHandle, bool enabled);
+
+            [DllImport("ProtoInputLoader32.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
+            public static extern void SetPointerInMouse(uint instanceHandle, bool enabled);
+
             [DllImport("ProtoInputUtilDynamic32.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
             public static extern uint LockInput(bool lockInput);
 
@@ -413,6 +419,12 @@ namespace Nucleus.Gaming.Coop.ProtoInput
 
             [DllImport("ProtoInputLoader64.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
             public static extern void SetRawInputBypass(uint instanceHandle, bool enabled);
+
+            [DllImport("ProtoInputLoader64.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
+            public static extern void SetReregisterinput(uint instanceHandle, bool enabled);
+
+            [DllImport("ProtoInputLoader64.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
+            public static extern void SetPointerInMouse(uint instanceHandle, bool enabled);
 
             [DllImport("ProtoInputLoader64.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
             public static extern void SetShowCursorWhenImageUpdated(uint instanceHandle, bool enable);
@@ -1102,15 +1114,39 @@ namespace Nucleus.Gaming.Coop.ProtoInput
             }
         }
 
-        public void SetRawInputBypass(uint instanceHandle, bool enableBypass)
+        public void SetRawInputBypass(uint instanceHandle, bool enable)
         {
             if (IntPtr.Size == 4)
             {
-                ProtoInput32.SetRawInputBypass(instanceHandle, enableBypass);
+                ProtoInput32.SetRawInputBypass(instanceHandle, enable);
             }
             else
             {
-                ProtoInput64.SetRawInputBypass(instanceHandle, enableBypass);
+                ProtoInput64.SetRawInputBypass(instanceHandle, enable);
+            }
+        }
+
+        public void SetReregisterinput(uint instanceHandle, bool enable)
+        {
+            if (IntPtr.Size == 4)
+            {
+                ProtoInput32.SetReregisterinput(instanceHandle, enable);
+            }
+            else
+            {
+                ProtoInput64.SetReregisterinput(instanceHandle, enable);
+            }
+        }
+
+        public void SetPointerInMouse(uint instanceHandle, bool enable)
+        {
+            if (IntPtr.Size == 4)
+            {
+                ProtoInput32.SetPointerInMouse(instanceHandle, enable);
+            }
+            else
+            {
+                ProtoInput64.SetPointerInMouse(instanceHandle, enable);
             }
         }
 

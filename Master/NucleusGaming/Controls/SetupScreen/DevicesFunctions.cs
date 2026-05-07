@@ -151,7 +151,7 @@ namespace Nucleus.Gaming.Controls.SetupScreen
                 }
 
                 //Using OpenXinput with more than 4 players means we can use more than 4 xinput controllers
-                if ((g.Hook.XInputEnabled && !g.Hook.XInputReroute && !g.ProtoInput.DinputDeviceHook) || g.ProtoInput.XinputHook || g.ProtoInput.TranslateXinputtoMKB || GameProfile.UseXtoMKB)
+                if ((g.Hook.XInputEnabled && !g.Hook.XInputReroute && !g.ProtoInput.DinputDeviceHook) || g.ProtoInput.XinputHook || g.ProtoInput.TranslateXinputtoMKB)
                 {
                     changed = CheckConnectedGamepads();
 

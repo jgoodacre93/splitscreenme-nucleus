@@ -2,7 +2,6 @@
 using Nucleus.Gaming;
 using Nucleus.Gaming.Cache;
 using Nucleus.Gaming.Controls;
-using Nucleus.Gaming.Coop;
 using System.Collections.Generic;
 using System.Drawing;
 
@@ -53,7 +52,7 @@ namespace Nucleus.Coop
                 icons.Add(icon2);
             }
 
-            if ((game.Hook.XInputEnabled && !game.Hook.XInputReroute && !game.ProtoInput.DinputDeviceHook) || game.ProtoInput.XinputHook || game.ProtoInput.TranslateXinputtoMKB || GameProfile.UseXtoMKB)
+            if ((game.Hook.XInputEnabled && !game.Hook.XInputReroute && !game.ProtoInput.DinputDeviceHook) || game.ProtoInput.XinputHook || game.ProtoInput.TranslateXinputtoMKB)
             {
                 Bitmap bmp = ImageCache.GetImage(Globals.ThemeFolder + "xinput_icon.png");
                 float ratio = (float)bmp.Width / (float)bmp.Height;
