@@ -113,6 +113,9 @@ namespace Nucleus.Gaming.Coop.ProtoInput
             public static extern void SetTranslateXinputtoMKB(uint instanceHandle, bool enable);
 
             [DllImport("ProtoInputLoader32.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
+            public static extern void SetReregisterinput(uint instanceHandle, bool enabled);
+
+            [DllImport("ProtoInputLoader32.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
             public static extern void InstallHook(uint instanceHandle, ProtoHookIDs hookID);
 
             [DllImport("ProtoInputLoader32.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
@@ -242,9 +245,6 @@ namespace Nucleus.Gaming.Coop.ProtoInput
             public static extern void SetRawInputBypass(uint instanceHandle, bool enabled);
 
             [DllImport("ProtoInputLoader32.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
-            public static extern void SetReregisterinput(uint instanceHandle, bool enabled);
-
-            [DllImport("ProtoInputLoader32.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
             public static extern void SetPointerInMouse(uint instanceHandle, bool enabled);
 
             [DllImport("ProtoInputUtilDynamic32.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
@@ -306,6 +306,9 @@ namespace Nucleus.Gaming.Coop.ProtoInput
 
             [DllImport("ProtoInputLoader64.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
             public static extern void SetTranslateXinputtoMKB(uint instanceHandle, bool enable);
+
+            [DllImport("ProtoInputLoader64.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
+            public static extern void SetReregisterinput(uint instanceHandle, bool enabled);
 
             [DllImport("ProtoInputLoader64.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
             public static extern void InstallHook(uint instanceHandle, ProtoHookIDs hookID);
@@ -419,9 +422,6 @@ namespace Nucleus.Gaming.Coop.ProtoInput
 
             [DllImport("ProtoInputLoader64.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
             public static extern void SetRawInputBypass(uint instanceHandle, bool enabled);
-
-            [DllImport("ProtoInputLoader64.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
-            public static extern void SetReregisterinput(uint instanceHandle, bool enabled);
 
             [DllImport("ProtoInputLoader64.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
             public static extern void SetPointerInMouse(uint instanceHandle, bool enabled);
@@ -614,6 +614,17 @@ namespace Nucleus.Gaming.Coop.ProtoInput
             else
             {
                 ProtoInput64.SetTranslateXinputtoMKB(instanceHandle, enable);
+            }
+        }
+        public void SetReregisterinput(uint instanceHandle, bool enable)
+        {
+            if (IntPtr.Size == 4)
+            {
+                ProtoInput32.SetReregisterinput(instanceHandle, enable);
+            }
+            else
+            {
+                ProtoInput64.SetReregisterinput(instanceHandle, enable);
             }
         }
         public void InstallHook(uint instanceHandle, ProtoHookIDs hookID)
@@ -1123,18 +1134,6 @@ namespace Nucleus.Gaming.Coop.ProtoInput
             else
             {
                 ProtoInput64.SetRawInputBypass(instanceHandle, enable);
-            }
-        }
-
-        public void SetReregisterinput(uint instanceHandle, bool enable)
-        {
-            if (IntPtr.Size == 4)
-            {
-                ProtoInput32.SetReregisterinput(instanceHandle, enable);
-            }
-            else
-            {
-                ProtoInput64.SetReregisterinput(instanceHandle, enable);
             }
         }
 

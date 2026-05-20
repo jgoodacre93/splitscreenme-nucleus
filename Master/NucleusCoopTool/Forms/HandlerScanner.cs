@@ -392,6 +392,7 @@ namespace Nucleus.Coop.Forms
                 "Game.ProtoInput.MouseButtonFilter",
                 "Game.ProtoInput.KeyboardButtonFilter",
                 "Game.ProtoInput.DrawFakeCursor",
+                "Game.ProtoInput.DrawFakeCursorFix",
                 "Game.ProtoInput.AllowFakeCursorOutOfBounds",
                 "Game.ProtoInput.ExtendFakeCursorBounds",
                 "Game.ProtoInput.SendMouseWheelMessages",
