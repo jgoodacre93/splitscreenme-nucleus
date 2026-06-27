@@ -38,6 +38,7 @@ namespace Nucleus.Gaming.Coop.ProtoInput
             public uint AdjustWindowRectHookID = (uint)ProtoHookIDs.AdjustWindowRectHookID;
             public uint RemoveBorderHookID = (uint)ProtoHookIDs.RemoveBorderHookID;
             public uint GetCursorInfoID = (uint)ProtoHookIDs.RemoveBorderHookID;
+            public uint SetWindowsHookHookID = (uint)ProtoHookIDs.SetWindowsHookHookID;
 
             public uint RawInputFilterID = (uint)ProtoMessageFilterIDs.RawInputFilterID;
             public uint MouseMoveFilterID = (uint)ProtoMessageFilterIDs.MouseMoveFilterID;
@@ -75,7 +76,8 @@ namespace Nucleus.Gaming.Coop.ProtoInput
             MoveWindowHookID,
             AdjustWindowRectHookID,
             RemoveBorderHookID,
-            GetCursorInfoID
+            GetCursorInfoID,
+            SetWindowsHookHookID
         };
 
         public enum ProtoMessageFilterIDs : uint
@@ -246,6 +248,9 @@ namespace Nucleus.Gaming.Coop.ProtoInput
 
             [DllImport("ProtoInputLoader32.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
             public static extern void SetPointerInMouse(uint instanceHandle, bool enabled);
+
+            [DllImport("ProtoInputLoader32.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
+            public static extern void SetSendMessagesToSubWindows(uint instanceHandle, bool enabled);
 
             [DllImport("ProtoInputUtilDynamic32.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
             public static extern uint LockInput(bool lockInput);
@@ -425,6 +430,9 @@ namespace Nucleus.Gaming.Coop.ProtoInput
 
             [DllImport("ProtoInputLoader64.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
             public static extern void SetPointerInMouse(uint instanceHandle, bool enabled);
+
+            [DllImport("ProtoInputLoader64.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
+            public static extern void SetSendMessagesToSubWindows(uint instanceHandle, bool enabled);
 
             [DllImport("ProtoInputLoader64.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
             public static extern void SetShowCursorWhenImageUpdated(uint instanceHandle, bool enable);
@@ -1147,7 +1155,19 @@ namespace Nucleus.Gaming.Coop.ProtoInput
             {
                 ProtoInput64.SetPointerInMouse(instanceHandle, enable);
             }
-        }
+        } //SendMessagesToSubWindows
+
+        public void SetSendMessagesToSubWindows(uint instanceHandle, bool enable)
+        {
+            if (IntPtr.Size == 4)
+            {
+                ProtoInput32.SetSendMessagesToSubWindows(instanceHandle, enable);
+            }
+            else
+            {
+                ProtoInput64.SetSendMessagesToSubWindows(instanceHandle, enable);
+            }
+        } //SendMessagesToSubWindows
 
         public bool GetTaskbarAutohide()
         {

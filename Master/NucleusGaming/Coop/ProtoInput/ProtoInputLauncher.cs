@@ -221,6 +221,11 @@ namespace Nucleus.Gaming.Coop.ProtoInput
                 ProtoInput.protoInput.SetPointerInMouse(instanceHandle, gen.ProtoInput.PointerInMouse);
             }
 
+            if (gen.ProtoInput.MessageSubWindows)
+            {
+                ProtoInput.protoInput.SetSendMessagesToSubWindows(instanceHandle, gen.ProtoInput.MessageSubWindows);
+            }
+
             ProtoInput.protoInput.SetShowCursorWhenImageUpdated(instanceHandle, !gen.ProtoInput.DontShowCursorWhenImageUpdated);
             if (gen.ProtoInput.CursorVisibilityHook)
             {
@@ -266,6 +271,10 @@ namespace Nucleus.Gaming.Coop.ProtoInput
             if (gen.ProtoInput.GetCursorInfoHook)
             {
                 ProtoInput.protoInput.InstallHook(instanceHandle, ProtoInput.ProtoHookIDs.GetCursorInfoID);
+            }
+            if (gen.ProtoInput.SetWindowsHookHook)
+            {
+                ProtoInput.protoInput.InstallHook(instanceHandle, ProtoInput.ProtoHookIDs.SetWindowsHookHookID);
             }
             ProtoInput.protoInput.SetUseOpenXinput(instanceHandle, gen.ProtoInput.UseOpenXinput);
             ProtoInput.protoInput.SetTranslateMKBtoXinput(instanceHandle, gen.ProtoInput.TranslateMKBtoXinput);

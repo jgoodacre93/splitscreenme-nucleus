@@ -77,6 +77,7 @@ namespace Nucleus.Gaming.Coop.ProtoInput
         public bool CreateSingleHIDHook;
         public bool SetWindowStyleHook;
         public bool GetCursorInfoHook;
+        public bool SetWindowsHookHook;
         public MoveWindowHook MoveWindowHook;
         public bool AdjustWindowRectHook;
         public SetRemoveBorderHook SetRemoveBorderHook;
@@ -128,6 +129,7 @@ namespace Nucleus.Gaming.Coop.ProtoInput
 
         public bool ReRegisterInput;
         public bool PointerInMouse;
+        public bool MessageSubWindows;
 
         public bool MultipleProtoControllers;
 
