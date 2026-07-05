@@ -1,5 +1,4 @@
 ﻿using Nucleus.Gaming.Coop;
-using Nucleus.Gaming.Coop.ProtoInput;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -7,7 +6,6 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using System.Windows.Controls;
 
 namespace Nucleus.Gaming.Tools.XInputPlusDll
 {

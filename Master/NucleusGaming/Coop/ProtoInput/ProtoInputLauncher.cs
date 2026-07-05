@@ -268,6 +268,7 @@ namespace Nucleus.Gaming.Coop.ProtoInput
             {
                 ProtoInput.protoInput.InstallHook(instanceHandle, ProtoInput.ProtoHookIDs.WindowStyleHookID);
             }
+
             if (gen.ProtoInput.GetCursorInfoHook)
             {
                 ProtoInput.protoInput.InstallHook(instanceHandle, ProtoInput.ProtoHookIDs.GetCursorInfoID);
@@ -279,7 +280,7 @@ namespace Nucleus.Gaming.Coop.ProtoInput
             ProtoInput.protoInput.SetUseOpenXinput(instanceHandle, gen.ProtoInput.UseOpenXinput);
             ProtoInput.protoInput.SetTranslateMKBtoXinput(instanceHandle, gen.ProtoInput.TranslateMKBtoXinput);
             ProtoInput.protoInput.SetUseDinputRedirection(instanceHandle, gen.ProtoInput.UseDinputRedirection);
-            if (gen.ProtoInput.XinputHook || gen.ProtoInput.TranslateMKBtoXinput) //TranslateMKBtoXinput depend on this
+            if (gen.ProtoInput.XinputHook)
             {
                 ProtoInput.protoInput.InstallHook(instanceHandle, ProtoInput.ProtoHookIDs.XinputHookID);
             }
