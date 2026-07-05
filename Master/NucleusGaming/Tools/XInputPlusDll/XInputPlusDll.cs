@@ -85,15 +85,6 @@ namespace Nucleus.Gaming.Tools.XInputPlusDll
 
                     textChanges.Add(handlerInstance.Context.FindLineNumberInTextFile(Path.Combine(handlerInstance.instanceExeFolder, "XInputPlus.ini"), "FileVersion=", SearchType.StartsWith) + "|FileVersion=" + handlerInstance.garch);
 
-                    bool done = false;
-                    foreach (string xinputDllName in handlerInstance.CurrentGameInfo.XInputPlusDll)
-                    {
-                        if (xinputDllName == "xinput1_4.dll" && !done)
-                        {
-                            done = true;
-                            textChanges.Add(handlerInstance.Context.FindLineNumberInTextFile(Path.Combine(handlerInstance.instanceExeFolder, "XInputPlus.ini"), "FileNamex64=", SearchType.StartsWith) + "|FileNamex64=" + Path.Combine(utilFolder, handlerInstance.garch + "\\Win10Xinput1_3.dll"));
-                        }
-                    }
                     if (player.IsController && !block)
                     {
                         if (handlerInstance.CurrentGameInfo.PlayersPerInstance > 1 && handlerInstance.profile.DevicesList.Any(pl => pl.InstanceGuests.Count > 0 ))

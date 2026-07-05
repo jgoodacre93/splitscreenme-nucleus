@@ -11,6 +11,32 @@ namespace Nucleus.Gaming
         DontReposition
     }
 
+   
+
+    public enum MoveWindowHook
+    {
+        True = 1,
+        DontResize,
+        DontReposition
+    }
+    public enum DrawFakeCursor
+    {
+        True = 1,
+        Fix
+    }
+    public enum PutMouseInsideWindow
+    {
+        True = 1,
+        IgnoreTopLeft,
+        IgnoreBottomRight
+    }
+
+    public enum SetRemoveBorderHook
+    {
+        True = 1,
+        DontWait
+    }
+
     public enum Key
     {
 
@@ -141,24 +167,5 @@ namespace Nucleus.Gaming
         RControl = 163,
         LMenu = 164,
         RMenu = 165,
-    }
-
-    public enum MoveWindowHook
-    {
-        True = 1,
-        DontResize,
-        DontReposition
-    }
-    public enum PutMouseInsideWindow
-    {
-        True = 1,
-        IgnoreTopLeft,
-        IgnoreBottomRight
-    }
-
-    public enum SetRemoveBorderHook
-    {
-        True = 1,
-        DontWait
     }
 }
