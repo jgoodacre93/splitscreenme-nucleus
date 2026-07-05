@@ -15,11 +15,13 @@
         DontResize,
         DontReposition
     }
+
     public enum DrawFakeCursor
     {
         True = 1,
         Fix
     }
+
     public enum PutMouseInsideWindow
     {
         True = 1,
