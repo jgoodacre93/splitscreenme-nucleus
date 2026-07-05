@@ -2687,7 +2687,7 @@ namespace Nucleus.Gaming
                         {
                             topMostFlag = new IntPtr(-2);
                         }
-                            
+
                         User32Interop.SetWindowPos(aproc.NucleusGetMainWindowHandle(), topMostFlag, 0, 0, 0, 0, (uint)(PositioningFlags.SWP_NOMOVE | PositioningFlags.SWP_NOSIZE | PositioningFlags.SWP_SHOWWINDOW));
                     }
                 }
@@ -2699,7 +2699,7 @@ namespace Nucleus.Gaming
                         Thread.Sleep(TimeSpan.FromSeconds(gen.PauseBetweenStarts));
                     }
                 }
-                
+
                 if (!ProcessUtil.IsRunning(proc))
                 {
                     Log("Process is no longer running. Attempting to find process by window title");
@@ -2801,7 +2801,7 @@ namespace Nucleus.Gaming
                             }
                         }
                     }
-                    
+
                     if (gen.KillLastInstanceMutex && !gen.RenameNotKillMutex)
                     {
                         for (; ; )
@@ -2842,12 +2842,12 @@ namespace Nucleus.Gaming
                     }
 
                     Thread.Sleep(1000);
-                    
+
                     if (gen.ResetWindows)
                     {
                         GlobalWindowMethods.ResetWindows(data, prevWindowX, prevWindowY, prevWindowWidth, prevWindowHeight, i + 1);
                     }
-                    
+
                     if (gen.FakeFocus)
                     {
                         Log($"Start sending fake focus messages every {gen.FakeFocusInterval} ms");
@@ -2980,7 +2980,7 @@ namespace Nucleus.Gaming
                             WinApi.EnumWindows(WindowEnum, thread.Id);
                         }
                     }
-                    
+
                     RawInputProcessor.Start();
 
                     if (gen.SetForegroundWindowElsewhere)
