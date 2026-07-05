@@ -62,8 +62,8 @@ namespace Nucleus.Coop
                 {
                     Name = "icon1",
                     Size = size,
-                    Image = bmp,
-                    SizeMode = PictureBoxSizeMode.StretchImage,
+                    Image = bmp,             
+                    SizeMode = PictureBoxSizeMode.StretchImage,                   
                 };
 
                 CustomToolTips.SetToolTip(icon, "Supports XInput gamepads (e.g. X360).", "icon1", new int[] { 190, 0, 0, 0 }, new int[] { 255, 255, 255, 255 });

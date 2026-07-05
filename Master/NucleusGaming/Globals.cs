@@ -20,7 +20,7 @@ namespace Nucleus.Gaming
         public static IniFile ThemeConfigFile => new IniFile(Path.Combine(ThemeFolder, "theme.ini"));
 
         public static string GameProfilesFolder => Path.Combine(Application.StartupPath, $"game profiles");
-
+       
         public static readonly int NucleusMaxPlayers = 32;
 
         public static string NucleusInstallRoot => Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);

@@ -17,8 +17,8 @@ namespace Nucleus.Coop
         /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-
-
+		
+		
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -27,8 +27,8 @@ namespace Nucleus.Coop
             }
             base.Dispose(disposing);
         }
-
-
+		       
+		
         #region Windows Form Designer generated code
 
         /// <summary>
@@ -543,8 +543,8 @@ namespace Nucleus.Coop
             // 
             // HomeScreen
             // 
-            this.HomeScreen.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.HomeScreen.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.HomeScreen.BackColor = System.Drawing.Color.Black;
             this.HomeScreen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -561,8 +561,8 @@ namespace Nucleus.Coop
             // 
             // SetupPanel
             // 
-            this.SetupPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.SetupPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.SetupPanel.AutoScroll = true;
             this.SetupPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
@@ -578,7 +578,7 @@ namespace Nucleus.Coop
             // 
             // GameListContainer
             // 
-            this.GameListContainer.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this.GameListContainer.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.GameListContainer.BackColor = System.Drawing.Color.Transparent;
             this.GameListContainer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -591,8 +591,8 @@ namespace Nucleus.Coop
             // 
             // GameList
             // 
-            this.GameList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.GameList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.GameList.AutoScroll = true;
             this.GameList.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
@@ -610,7 +610,7 @@ namespace Nucleus.Coop
             // 
             // InfoPanel
             // 
-            this.InfoPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this.InfoPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.InfoPanel.BackColor = System.Drawing.Color.Transparent;
             this.InfoPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -795,8 +795,8 @@ namespace Nucleus.Coop
             // 
             // HandlerNotesContainer
             // 
-            this.HandlerNotesContainer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.HandlerNotesContainer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.HandlerNotesContainer.BackColor = System.Drawing.Color.Transparent;
             this.HandlerNotesContainer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -822,8 +822,8 @@ namespace Nucleus.Coop
             // 
             // HandlerNotes
             // 
-            this.HandlerNotes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.HandlerNotes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.HandlerNotes.BackColor = System.Drawing.Color.Black;
             this.HandlerNotes.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -856,7 +856,7 @@ namespace Nucleus.Coop
             // 
             // WindowPanel
             // 
-            this.WindowPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.WindowPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.WindowPanel.BackColor = System.Drawing.Color.Transparent;
             this.WindowPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -1175,7 +1175,7 @@ namespace Nucleus.Coop
         public System.Windows.Forms.ContextMenuStrip GameOptionMenu;
         private System.Windows.Forms.ToolStripSeparator menuSeparator1;
         private System.Windows.Forms.ToolStripSeparator menuSeparator3;
-        private System.Windows.Forms.PictureBox BigLogo;
+		private System.Windows.Forms.PictureBox BigLogo;
         private Button minimizeBtn;
         private Button maximizeBtn;
         private PictureBox logo;

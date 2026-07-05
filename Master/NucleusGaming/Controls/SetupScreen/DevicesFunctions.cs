@@ -17,7 +17,7 @@ namespace Nucleus.Gaming.Controls.SetupScreen
 {
     //This should not rely on UI at all in the future
     public class DevicesFunctions
-    {
+    {     
         private static SynchronizationContext _syncContext;
         private static SetupScreenControl parent;
         private static UserGameInfo userGameInfo;
@@ -31,7 +31,7 @@ namespace Nucleus.Gaming.Controls.SetupScreen
         private static System.Threading.Timer PollingTimer;
 
         internal static float playerSize;
-
+       
         internal static bool insideGamepadTick = false;
         public static bool isDisconnected;
 
@@ -58,7 +58,7 @@ namespace Nucleus.Gaming.Controls.SetupScreen
         }
 
         private static void UpdateUseGamepadApiIndex()
-        {
+        {           
             profile?.DevicesList.Clear();
             UpdateDevices();
         }
@@ -181,7 +181,7 @@ namespace Nucleus.Gaming.Controls.SetupScreen
                             {
                                 continue;
                             }
-
+           
                             //new gamepad
                             PlayerInfo player = new PlayerInfo
                             {
@@ -286,9 +286,9 @@ namespace Nucleus.Gaming.Controls.SetupScreen
                 {
                     PlayerInfo player = profile?.DevicesList[i];
 
-                    if (player == null) { continue; }
+                    if(player == null) { continue;}
 
-                    if (!player.IsController) { continue; }
+                    if (!player.IsController){ continue; }
 
                     switch (player.InputType)
                     {
@@ -389,12 +389,12 @@ namespace Nucleus.Gaming.Controls.SetupScreen
             {
                 PlayerInfo player = profile.DevicesList[j];
 
-                if (!player.IsController)
+                if(!player.IsController)
                 {
                     continue;
                 }
 
-                if (player.IsFake)
+                if(player.IsFake)
                 {
                     return true;
                 }
@@ -580,7 +580,7 @@ namespace Nucleus.Gaming.Controls.SetupScreen
                     for (int i = 0; i < testSDL2Players; i++)
                     {
 
-                        if (i >= userGameInfo.Game.MaxPlayers)
+                        if(i >= userGameInfo.Game.MaxPlayers)
                         {
                             break;
                         }
@@ -612,7 +612,7 @@ namespace Nucleus.Gaming.Controls.SetupScreen
                     parent.Invalidate(false);
                 });
             }
-
+            
         }
     }
 }
